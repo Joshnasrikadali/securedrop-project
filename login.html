@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SafeDrop | Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- Sounds -->
+<audio id="clickSound" src="{{ url_for('static', filename='sounds/click.mp3') }}"></audio>
+<audio id="successSound" src="{{ url_for('static', filename='sounds/success.mp3') }}"></audio>
+<audio id="unlockSound" src="{{ url_for('static', filename='sounds/unlock.mp3') }}"></audio>
+
+<div id="login-container">
+    <div class="login-box">
+
+        <!-- LOGO -->
+        <img src="{{ url_for('static', filename='images/logo.png') }}"
+             class="logo"
+             alt="SafeDrop Logo">
+
+        <h1>SafeDrop</h1>
+        <p>Secure File Access</p>
+
+        <form method="POST">
+
+            <input type="text"
+                   name="username"
+                   placeholder="Username / Email"
+                   required
+                   onclick="playClick()">
+
+            <div class="password-box">
+                <input type="password"
+                       id="password"
+                       name="password"
+                       placeholder="Password"
+                       required
+                       onclick="playClick()">
+                <span class="toggle" onclick="togglePassword()">👁</span>
+            </div>
+
+            <button type="submit" onclick="playSuccess()">Login</button>
+        </form>
+
+        <div class="links">
+            <p><a href="#" onclick="playUnlock()">Forgot Password?</a></p>
+            <p>Don’t have an account? <a href="#">Sign Up</a></p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function togglePassword() {
+    const p = document.getElementById("password");
+    p.type = p.type === "password" ? "text" : "password";
+}
+
+function playClick() {
+    document.getElementById("clickSound").play();
+}
+
+function playSuccess() {
+    document.getElementById("successSound").play();
+}
+
+function playUnlock() {
+    document.getElementById("unlockSound").play();
+}
+</script>
+
+</body>
+</html>

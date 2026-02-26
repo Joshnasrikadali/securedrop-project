@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Reset Password</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="overlay"></div>
+<div class="login-wrapper">
+<div class="login-box">
+
+<h1>Reset Password</h1>
+
+<form method="POST">
+<input type="text" name="otp" placeholder="OTP" required>
+<input type="password" name="password" placeholder="New Password" required>
+<button>Reset</button>
+</form>
+
+</div>
+</div>
+</body>
+</html>
